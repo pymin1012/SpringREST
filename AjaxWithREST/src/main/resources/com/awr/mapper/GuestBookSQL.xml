@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.awr.mapper.GuestBookMapper">
+	
+	<select id="list" resultType="com.awr.domain.GuestBookDTO">
+		select * from guestbook order by gno
+	</select>
+	
+	<select id="get" resultType="com.awr.domain.GuestBookDTO">
+		select * from guestbook where gno = #{gno}
+	</select>
+	
+	<insert id="insert">
+		insert into guestbook(gno, writer, ip, regdate, updateDate, content)
+		values(guestbookSeq.nextVal, #{writer}, #{ip}, sysdate, sysdate, #{content})
+	</insert>
+	
+	<update id="update">
+		update guestbook set ip = #{ip}, updateDate = sysdate, content = #{content}
+		where gno = #{gno}
+	</update>
+	
+	<delete id="delete">
+		delete from guestbook where gno = #{gno}
+	</delete>
+	
+</mapper>

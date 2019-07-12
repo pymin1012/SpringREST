@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/*search box css start here*/
+body {
+	background: linear-gradient(to right, rgb(35, 37, 38), rgb(65, 67, 69));
+}
+
+.container {
+	color: #dee2e6;
+}
+
+img {
+	width: auto;
+	height: 70vh;
+}
+
+.guestbookList-sec {
+	color: #656769;
+}
+
+.guestbookList-sec .card-header {
+	color: #dee2e6;
+}
+
+.guestbookList-sec .card-header a {
+	color: #ffc107;
+}
+
+.reply {
+	color: #656769;
+}
+
+.wrn-btn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+}

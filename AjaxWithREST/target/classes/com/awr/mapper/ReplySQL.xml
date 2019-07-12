@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.awr.mapper.ReplyMapper">
+	
+	<select id="list" resultType="com.awr.domain.ReplyDTO">
+		select * from reply where gno = #{gno} order by rno desc
+	</select>
+	
+	<select id="get" resultType="com.awr.domain.ReplyDTO">
+		select * from reply where rno = #{rno}
+	</select>
+	
+	<insert id="insert">
+		insert into reply(rno, gno, replyer, ip, regdate, updateDate, reply) 
+		values(replySeq.nextVal, #{gno}, #{replyer}, #{ip}, sysdate, sysdate, #{reply})
+	</insert>
+	
+	<update id="update">
+		update reply set ip = #{ip}, updateDate = sysdate, reply = #{reply}
+		where rno = #{rno}
+	</update>
+	
+	<delete id="delete">
+		delete from reply where rno = #{rno}
+	</delete>
+	
+</mapper>
